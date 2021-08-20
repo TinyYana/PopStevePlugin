@@ -8,7 +8,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 public class onInventoryClickEvent implements Listener {
     MapManager mapManager = new MapManager();
 
-
     @EventHandler
     public void onMainInventoryClick(InventoryClickEvent event) {
         if(!event.getView().getTitle().equals("Pop Steve :)")){
@@ -19,7 +18,4 @@ public class onInventoryClickEvent implements Listener {
             mapManager.totalPop++;
         }
     }
-
-
-
 }
