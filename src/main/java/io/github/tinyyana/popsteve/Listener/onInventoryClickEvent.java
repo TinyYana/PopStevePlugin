@@ -21,6 +21,7 @@ public class onInventoryClickEvent implements Listener {
             mapManager.totalPop++;
             UUID playerUUID = event.getWhoClicked().getUniqueId();
             if(mapManager.getPop(playerUUID) == null){
+                data.get().createSection(playerUUID.toString());
                 data.get().set(playerUUID.toString(),1);
             }
             mapManager.setTotalPopMap(playerUUID,mapManager.getPop(playerUUID) + 1);

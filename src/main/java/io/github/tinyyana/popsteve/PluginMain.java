@@ -9,7 +9,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class PluginMain extends JavaPlugin {
 
     public static PluginMain plugin;
-
     public ConfigLoader config;
     public ConfigLoader data;
 
@@ -20,7 +19,7 @@ public final class PluginMain extends JavaPlugin {
         loadCommands();
         loadEvents();
         config = new ConfigLoader("config");
-        data = new ConfigLoader("config");
+        data = new ConfigLoader("data");
         mapManager.load();
     }
 
