@@ -10,7 +10,7 @@ public class onInventoryClickEvent implements Listener {
 
     @EventHandler
     public void onMainInventoryClick(InventoryClickEvent event) {
-        if(!event.getView().getTitle().equals("Pop Steve :)")){
+        if(!event.getView().getTitle().equals("§lPop Steve :)")){
             return;
         }
         event.setCancelled(true);

@@ -2,7 +2,6 @@ package io.github.tinyyana.popsteve.Commands;
 
 import io.github.tinyyana.popsteve.PluginMain;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,11 +17,10 @@ import java.util.List;
 public class PopSteveMenu implements CommandExecutor {
     public PopSteveMenu(PluginMain pluginMain) {
     }
-    Inventory popGui = Bukkit.createInventory(null,27, ChatColor.BOLD + "Pop Steve :)");
+    Inventory popGui = Bukkit.createInventory(null,27, "§lPop Steve :)");
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
-
 
         if (!(sender instanceof Player)) {
             sender.sendMessage("Only player can execute this command!");
@@ -44,7 +42,6 @@ public class PopSteveMenu implements CommandExecutor {
             }
             putButton(Material.BLACK_STAINED_GLASS_PANE,"§7§lNO...NOT ME",null,i);
         }
-
 
         return popGui;
     }
