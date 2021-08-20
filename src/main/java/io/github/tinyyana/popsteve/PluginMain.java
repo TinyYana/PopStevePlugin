@@ -1,7 +1,6 @@
 package io.github.tinyyana.popsteve;
 
 import io.github.tinyyana.popsteve.Commands.PopSteveMenu;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class PluginMain extends JavaPlugin {
