@@ -16,24 +16,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PopSteveMenu implements CommandExecutor {
-
     public PopSteveMenu(PluginMain pluginMain) {
     }
-
     Inventory popGui = Bukkit.createInventory(null,27, ChatColor.BOLD + "Pop Steve :)");
-
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
+
 
         if (!(sender instanceof Player)) {
             sender.sendMessage("Only player can execute this command!");
             return true;
         }
-
         player.openInventory(getPopGUI());
-        return true;
+        return false;
     }
+
 
     public Inventory getPopGUI(){
 
@@ -41,10 +39,10 @@ public class PopSteveMenu implements CommandExecutor {
             if (i == 13){
                 List<String> list = new ArrayList<>();
                 list.add("&eClick to POP STEVE");
-                putButton(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list,1);
+                putButton(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list,i);
                 continue;
             }
-            putButton(Material.BLACK_STAINED_GLASS_PANE,"§7§lNO...NOT ME",null,1);
+            putButton(Material.BLACK_STAINED_GLASS_PANE,"§7§lNO...NOT ME",null,i);
         }
 
 
