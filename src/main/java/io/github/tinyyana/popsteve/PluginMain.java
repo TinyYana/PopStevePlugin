@@ -10,6 +10,7 @@ public final class PluginMain extends JavaPlugin {
 
     public static PluginMain plugin;
     public ConfigLoader config;
+    public ConfigLoader data;
 
     PluginManager pluginManager = getServer().getPluginManager();
 
@@ -18,6 +19,7 @@ public final class PluginMain extends JavaPlugin {
         loadCommands();
         loadEvents();
         config = new ConfigLoader("config");
+        data = new ConfigLoader("config");
     }
 
     @Override
