@@ -28,7 +28,7 @@ public class PopSteveMenu implements CommandExecutor {
             sender.sendMessage("Only player can execute this command!");
             return true;
         }
-
+        player.openInventory(getPopGUI());
         return false;
     }
 
@@ -39,10 +39,10 @@ public class PopSteveMenu implements CommandExecutor {
             if (i == 13){
                 List<String> list = new ArrayList<>();
                 list.add("&eClick to POP STEVE");
-                putButton(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list,1);
+                putButton(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list,i);
                 continue;
             }
-            putButton(Material.BLACK_STAINED_GLASS_PANE,"§7§lNO...NOT ME",null,1);
+            putButton(Material.BLACK_STAINED_GLASS_PANE,"§7§lNO...NOT ME",null,i);
         }
 
 
