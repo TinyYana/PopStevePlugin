@@ -10,3 +10,6 @@ commands:
   popsteve:
     description: Open the pop steve menu.
     usage: /<command>
+  popleaderboard:
+    description: Leaderboard command.
+    usage: /<command>
