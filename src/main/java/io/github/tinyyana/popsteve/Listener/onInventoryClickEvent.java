@@ -5,6 +5,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
+import java.util.UUID;
+
 public class onInventoryClickEvent implements Listener {
     MapManager mapManager = new MapManager();
 
@@ -16,6 +18,8 @@ public class onInventoryClickEvent implements Listener {
         event.setCancelled(true);
         if(event.getSlot() == 13){
             mapManager.totalPop++;
+            UUID playerUUID = event.getWhoClicked().getUniqueId();
+            mapManager.popPlayer = playerUUID;
         }
     }
 }
