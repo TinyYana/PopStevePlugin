@@ -45,6 +45,7 @@ public class PopSteveMenu implements CommandExecutor {
 
         return popGui;
     }
+
     public void putButton(Material material, String name, List<String> lore, int index) {
         ItemStack button = new ItemStack(material, 1);
         ItemMeta meta = button.getItemMeta();

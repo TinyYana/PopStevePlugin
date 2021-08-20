@@ -18,7 +18,8 @@ public class onInventoryClickEvent implements Listener {
         if (event.getSlot() == 13) {
             mapManager.totalPop++;
             UUID playerUUID = event.getWhoClicked().getUniqueId();
-            mapManager.popPlayer = playerUUID;
+            mapManager.setTotalPopMap(playerUUID,mapManager.getPop(playerUUID) + 1);
+            event.getWhoClicked().sendMessage("");
         }
     }
 }
