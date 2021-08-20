@@ -14,7 +14,8 @@ public class onInventoryClickEvent implements Listener {
     public void onMainInventoryClick(InventoryClickEvent event) {
         if (!event.getView().getTitle().equals("§lPop Steve :)")) return;
         event.setCancelled(true);
-        if(event.getSlot() == 13){
+
+        if (event.getSlot() == 13) {
             mapManager.totalPop++;
             UUID playerUUID = event.getWhoClicked().getUniqueId();
             mapManager.popPlayer = playerUUID;
