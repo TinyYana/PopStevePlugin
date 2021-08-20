@@ -29,7 +29,7 @@ public class PopSteveMenu implements CommandExecutor {
             return true;
         }
         player.openInventory(getPopGUI());
-        return false;
+        return true;
     }
 
 
