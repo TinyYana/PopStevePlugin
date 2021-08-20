@@ -16,22 +16,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PopSteveMenu implements CommandExecutor {
+
     public PopSteveMenu(PluginMain pluginMain) {
     }
+
     Inventory popGui = Bukkit.createInventory(null,27, ChatColor.BOLD + "Pop Steve :)");
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
-
 
         if (!(sender instanceof Player)) {
             sender.sendMessage("Only player can execute this command!");
             return true;
         }
 
-        return false;
+        player.openInventory(getPopGUI());
+        return true;
     }
-
 
     public Inventory getPopGUI(){
 

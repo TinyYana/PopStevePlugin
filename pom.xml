@@ -6,7 +6,7 @@
 
     <groupId>io.github.TinyYana</groupId>
     <artifactId>PopSteve</artifactId>
-    <version>PROTOTYPE</version>
+    <version>1.0-BETA</version>
     <packaging>jar</packaging>
 
     <name>PopSteve</name>
