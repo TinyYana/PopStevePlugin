@@ -12,9 +12,7 @@ public class onInventoryClickEvent implements Listener {
 
     @EventHandler
     public void onMainInventoryClick(InventoryClickEvent event) {
-        if(!event.getView().getTitle().equals("§lPop Steve :)")){
-            return;
-        }
+        if (!event.getView().getTitle().equals("§lPop Steve :)")) return;
         event.setCancelled(true);
         if(event.getSlot() == 13){
             mapManager.totalPop++;
