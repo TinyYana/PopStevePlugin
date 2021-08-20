@@ -7,7 +7,7 @@ public final class PluginMain extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        loadCommands();
     }
 
     @Override
