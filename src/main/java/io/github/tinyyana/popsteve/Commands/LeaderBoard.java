@@ -23,6 +23,7 @@ public class LeaderBoard implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         List<Integer> popCount = new ArrayList<>(mapManager.totalPopMap.values());
+<<<<<<< Updated upstream
         List<UUID> popPlayer = new ArrayList<>(mapManager.totalPopMap.keySet());
 
         for (int i = 0; i < popPlayer.size(); i++) {
@@ -36,6 +37,10 @@ public class LeaderBoard implements CommandExecutor {
         sender.sendMessage("§61. §e" + playerName + " §8Count: §7" + totalCounts);
         sender.sendMessage(ChatColor.BLUE + "------------------------------------");
 
+=======
+        popCount.forEach(System.out::println);
+        
+>>>>>>> Stashed changes
         return true;
     }
 }
