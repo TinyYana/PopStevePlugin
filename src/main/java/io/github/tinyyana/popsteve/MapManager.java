@@ -6,7 +6,7 @@ import java.util.UUID;
 public class MapManager {
     public int totalPop;
     public HashMap<UUID, Integer> totalPopMap = new HashMap<>();
-
+    public MapManager mapManager;
     public void setTotalPopMap(UUID popPlayer, Integer totalPop) {
         totalPopMap.put(popPlayer, totalPop);
     }
@@ -23,8 +23,9 @@ public class MapManager {
                 System.out.println(totalPop);
                 continue;
             }
-            System.out.println(totalPopMap.get(UUID.fromString("204aff2a-ce18-4746-a8d3-33f9dc290543")));
             setTotalPopMap(UUID.fromString(key), Integer.parseInt(value));
+            System.out.println(totalPopMap.get(UUID.fromString("204aff2a-ce18-4746-a8d3-33f9dc290543")));
+            System.out.println(getPop(UUID.fromString("204aff2a-ce18-4746-a8d3-33f9dc290543")));
             System.out.println("-------------------");
         }
     }

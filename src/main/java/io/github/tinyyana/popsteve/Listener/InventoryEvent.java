@@ -14,11 +14,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
-public class InventoryEvent implements Listener {
+public class InventoryEvent extends MapManager implements Listener {
 
-    public static MapManager mapManager = new MapManager();
+
     ConfigLoader data = PluginMain.getPlugin().data;
     PopSteveMenu popMenu = new PopSteveMenu(PluginMain.getPlugin());
     @EventHandler
@@ -27,26 +28,26 @@ public class InventoryEvent implements Listener {
         event.setCancelled(true);
 
         if (event.getSlot() == 13) {
-            mapManager.totalPop++;
+            System.out.println(getPop(event.getWhoClicked().getUniqueId()));
+            totalPop++;
             UUID playerUUID = event.getWhoClicked().getUniqueId();
             List<String> list = new ArrayList<>();
-            if(mapManager.getPop(playerUUID) == null){
-                mapManager.setTotalPopMap(playerUUID,1);
+            if(getPop(playerUUID) == null){
+                setTotalPopMap(playerUUID,1);
                 list.add("&eClick to POP STEVE");
-                list.add("&fYour POP: &7" + mapManager.getPop(event.getWhoClicked().getUniqueId()).toString());
+                list.add("&fYour POP: &7" + getPop(event.getWhoClicked().getUniqueId()).toString());
                 event.getInventory().setItem(13,setItem(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list));
                 data.get().set(playerUUID.toString(), 1);
                 data.save();
-                mapManager.totalPop++;
+               totalPop++;
                 return;
             }
-            mapManager.totalPop++;
+            data.get().set("totalPop",totalPop);
             list.add("&eClick to POP STEVE");
-            list.add("&fYour POP: &7" + mapManager.getPop(event.getWhoClicked().getUniqueId()).toString());
+            list.add("&fYour POP: &7" + getPop(event.getWhoClicked().getUniqueId()).toString());
             event.getInventory().setItem(13,setItem(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list));
-            data.get().set(playerUUID.toString(), mapManager.totalPopMap.get(playerUUID) + 1);
-            System.out.println(mapManager.totalPopMap.get(playerUUID));
-            mapManager.setTotalPopMap(playerUUID,mapManager.getPop(playerUUID) + 1);
+            data.get().set(playerUUID.toString(), totalPopMap.get(playerUUID) + 1);
+            setTotalPopMap(playerUUID,getPop(playerUUID) + 1);
 //            System.out.println(mapManager.getPop(playerUUID));
             event.getWhoClicked().sendMessage("§7§lPOP IT!!");
         }
@@ -58,17 +59,17 @@ public class InventoryEvent implements Listener {
 
         UUID playerUUID = event.getPlayer().getUniqueId();
         List<String> list = new ArrayList<>();
-        if(mapManager.getPop(playerUUID) == null){
-            mapManager.setTotalPopMap(playerUUID,0);
+        if(getPop(playerUUID) == null){
+            setTotalPopMap(playerUUID,0);
             list.add("&eClick to POP STEVE");
-            list.add("&fYour POP: &7" + mapManager.getPop(event.getPlayer().getUniqueId()).toString());
+            list.add("&fYour POP: &7" + getPop(event.getPlayer().getUniqueId()).toString());
             event.getInventory().setItem(13,setItem(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list));
             data.get().set(playerUUID.toString(), 0);
             data.save();
             return;
         }
         list.add("&eClick to POP STEVE");
-        list.add("&fYour POP: &7" + mapManager.getPop(event.getPlayer().getUniqueId()).toString());
+        list.add("&fYour POP: &7" + getPop(event.getPlayer().getUniqueId()).toString());
         event.getInventory().setItem(13,setItem(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list));
     }
     public ItemStack setItem(Material material, String name, List<String> lore) {

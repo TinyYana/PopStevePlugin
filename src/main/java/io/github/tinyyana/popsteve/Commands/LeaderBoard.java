@@ -1,5 +1,6 @@
 package io.github.tinyyana.popsteve.Commands;
 
+import io.github.tinyyana.popsteve.MapManager;
 import io.github.tinyyana.popsteve.PluginMain;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -9,11 +10,12 @@ import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
-import static io.github.tinyyana.popsteve.Listener.InventoryEvent.mapManager;
 
-public class LeaderBoard implements CommandExecutor {
+
+public class LeaderBoard extends MapManager implements CommandExecutor {
     public LeaderBoard(PluginMain pluginMain) {
     }
 
