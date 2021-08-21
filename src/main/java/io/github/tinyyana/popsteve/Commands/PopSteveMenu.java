@@ -14,6 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class PopSteveMenu implements CommandExecutor {
 
@@ -22,11 +23,12 @@ public class PopSteveMenu implements CommandExecutor {
 
     Inventory popGui = Bukkit.createInventory(null,27, "§lPop Steve :)");
     MapManager mapManager = new MapManager();
-    public static Player player;
+    public UUID uuid;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        player = (Player) sender;
+        Player player = (Player) sender;
+        uuid = player.getUniqueId();
 
         if (!(sender instanceof Player)) {
             sender.sendMessage("Only player can execute this command!");
@@ -41,7 +43,7 @@ public class PopSteveMenu implements CommandExecutor {
             if (i == 13){
                 List<String> list = new ArrayList<>();
                 list.add("&eClick to POP STEVE");
-                list.add(mapManager.getPop(player.getUniqueId()).toString());
+                list.add(mapManager.getPop(uuid).toString());
                 putButton(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list,i);
                 continue;
             }
