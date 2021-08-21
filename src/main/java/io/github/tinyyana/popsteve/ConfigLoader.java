@@ -22,7 +22,9 @@ public class ConfigLoader {
         this.configuration = new YamlConfiguration();
 
         if (! file.exists()) {
-            try { plugin.saveResource(this.fileName + ".yml", false); }
+            try {
+                plugin.saveResource(this.fileName + ".yml", false);
+            }
             catch (IllegalArgumentException e) {
                 System.out.println("檔案取得失敗:[" + this.fileName + ".yml]");
             }
@@ -38,7 +40,9 @@ public class ConfigLoader {
     }
 
     public boolean save () {
-        try { this.configuration.save(file); }
+        try {
+            this.configuration.save(file);
+        }
         catch (Exception e) {
             System.out.println("檔案儲存失敗:[ " + this.fileName + ".yml]");
             return false;
