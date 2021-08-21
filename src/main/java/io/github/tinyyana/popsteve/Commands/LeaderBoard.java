@@ -23,7 +23,7 @@ public class LeaderBoard implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         List<Integer> popCount = new ArrayList<>(mapManager.totalPopMap.values());
-        List<UUID> popPlayer = new ArrayList(mapManager.totalPopMap.keySet());
+        List<UUID> popPlayer = new ArrayList<>(mapManager.totalPopMap.keySet());
 
         for (int i = 0; i < popPlayer.size(); i++) {
             playerName = Bukkit.getPlayer(popPlayer.get(i)).getName();
