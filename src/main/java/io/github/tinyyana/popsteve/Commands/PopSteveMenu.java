@@ -1,6 +1,5 @@
 package io.github.tinyyana.popsteve.Commands;
 
-import io.github.tinyyana.popsteve.MapManager;
 import io.github.tinyyana.popsteve.PluginMain;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -19,7 +18,6 @@ import java.util.UUID;
 public class PopSteveMenu implements CommandExecutor {
 
     Inventory popGui = Bukkit.createInventory(null,27, "§lPop Steve :)");
-    MapManager mapManager = new MapManager();
 
     public PopSteveMenu(PluginMain pluginMain) {
     }
