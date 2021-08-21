@@ -3,6 +3,7 @@ package io.github.tinyyana.popsteve;
 import io.github.tinyyana.popsteve.Commands.LeaderBoard;
 import io.github.tinyyana.popsteve.Commands.PopSteveMenu;
 import io.github.tinyyana.popsteve.Listener.InventoryEvent;
+import io.github.tinyyana.popsteve.Listener.PlayerEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -26,6 +27,7 @@ public final class PluginMain extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        data.save();
     }
 
     public void loadCommands() {
@@ -35,6 +37,7 @@ public final class PluginMain extends JavaPlugin {
 
     public void loadEvents() {
         pluginManager.registerEvents(new InventoryEvent(), this);
+        pluginManager.registerEvents(new PlayerEvent(), this);
     }
 
     public void onLoad(){

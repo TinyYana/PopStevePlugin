@@ -37,11 +37,15 @@ public class InventoryEvent implements Listener {
                 event.getInventory().setItem(13,setItem(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list));
                 data.get().set(playerUUID.toString(), 1);
                 data.save();
+                mapManager.totalPop++;
                 return;
             }
+            mapManager.totalPop++;
             list.add("&eClick to POP STEVE");
             list.add("&fYour POP: &7" + mapManager.getPop(event.getWhoClicked().getUniqueId()).toString());
             event.getInventory().setItem(13,setItem(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list));
+            data.get().set(playerUUID.toString(), mapManager.totalPopMap.get(playerUUID) + 1);
+            System.out.println(mapManager.totalPopMap.get(playerUUID));
             mapManager.setTotalPopMap(playerUUID,mapManager.getPop(playerUUID) + 1);
 //            System.out.println(mapManager.getPop(playerUUID));
             event.getWhoClicked().sendMessage("§7§lPOP IT!!");
@@ -55,11 +59,11 @@ public class InventoryEvent implements Listener {
         UUID playerUUID = event.getPlayer().getUniqueId();
         List<String> list = new ArrayList<>();
         if(mapManager.getPop(playerUUID) == null){
-            mapManager.setTotalPopMap(playerUUID,1);
+            mapManager.setTotalPopMap(playerUUID,0);
             list.add("&eClick to POP STEVE");
             list.add("&fYour POP: &7" + mapManager.getPop(event.getPlayer().getUniqueId()).toString());
             event.getInventory().setItem(13,setItem(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list));
-            data.get().set(playerUUID.toString(), 1);
+            data.get().set(playerUUID.toString(), 0);
             data.save();
             return;
         }
@@ -77,4 +81,5 @@ public class InventoryEvent implements Listener {
         button.setItemMeta(meta);
         return button;
     }
+
 }

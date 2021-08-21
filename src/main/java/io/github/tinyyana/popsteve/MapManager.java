@@ -14,12 +14,18 @@ public class MapManager {
     public void load() {
         ConfigLoader data = PluginMain.getPlugin().data;
         for (String key : data.get().getKeys(false)) {
+            System.out.println("-------------------");
+            System.out.println(key);
             String value = data.get().getString(key);
+            System.out.println(value);
             if (key.equals("totalPop")) {
-                data.get().set("totalPop", totalPop);
+                totalPop = data.get().getInt("totalPop");
+                System.out.println(totalPop);
                 continue;
             }
-            totalPopMap.put(UUID.fromString(key), Integer.parseInt(value));
+            System.out.println(totalPopMap.get(UUID.fromString("204aff2a-ce18-4746-a8d3-33f9dc290543")));
+            setTotalPopMap(UUID.fromString(key), Integer.parseInt(value));
+            System.out.println("-------------------");
         }
     }
     public Integer getPop(UUID uuid) {
