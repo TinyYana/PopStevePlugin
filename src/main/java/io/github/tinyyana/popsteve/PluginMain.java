@@ -17,10 +17,10 @@ public final class PluginMain extends JavaPlugin {
     @Override
     public void onEnable() {
         loadCommands();
-        loadEvents();
         config = new ConfigLoader("config");
         data = new ConfigLoader("data");
         mapManager.load();
+        loadEvents();
     }
 
     @Override
@@ -42,7 +42,7 @@ public final class PluginMain extends JavaPlugin {
     }
 
     public static PluginMain getPlugin(){
-        return PluginMain.plugin;
+        return plugin;
     }
 
 }

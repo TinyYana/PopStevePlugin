@@ -10,8 +10,10 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import java.util.UUID;
 
 public class onInventoryClickEvent implements Listener {
+
     MapManager mapManager = new MapManager();
-    ConfigLoader data = PluginMain.plugin.data;
+    ConfigLoader data = PluginMain.getPlugin().data;
+
     @EventHandler
     public void onMainInventoryClick(InventoryClickEvent event) {
         if (!event.getView().getTitle().equals("§lPop Steve :)")) return;
@@ -21,8 +23,9 @@ public class onInventoryClickEvent implements Listener {
             mapManager.totalPop++;
             UUID playerUUID = event.getWhoClicked().getUniqueId();
             if(mapManager.getPop(playerUUID) == null){
-                data.get().createSection(playerUUID.toString());
-                data.get().set(playerUUID.toString(),1);
+                mapManager.setTotalPopMap(playerUUID,1);
+                data.get().set(playerUUID.toString(), 1);
+                data.save();
             }
             mapManager.setTotalPopMap(playerUUID,mapManager.getPop(playerUUID) + 1);
             event.getWhoClicked().sendMessage("§7§lPOP IT!!");
