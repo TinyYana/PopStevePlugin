@@ -32,7 +32,6 @@ public class PopSteveMenu implements CommandExecutor {
         return true;
     }
 
-
     public Inventory getPopGUI(){
         for(int i = 0;i<=26;i++){
             if (i == 13){
