@@ -43,7 +43,7 @@ public class InventoryEvent implements Listener {
             list.add("&fYour POP: &7" + mapManager.getPop(event.getWhoClicked().getUniqueId()).toString());
             event.getInventory().setItem(13,setItem(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list));
             mapManager.setTotalPopMap(playerUUID,mapManager.getPop(playerUUID) + 1);
-            System.out.println(mapManager.getPop(playerUUID));
+//            System.out.println(mapManager.getPop(playerUUID));
             event.getWhoClicked().sendMessage("§7§lPOP IT!!");
         }
     }
