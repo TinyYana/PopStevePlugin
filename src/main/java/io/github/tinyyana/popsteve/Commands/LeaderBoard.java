@@ -27,13 +27,14 @@ public class LeaderBoard implements CommandExecutor {
         List<Integer> popCount = new ArrayList<>(mapManager.totalPopMap.values());
         List<UUID> popPlayer = new ArrayList(mapManager.totalPopMap.keySet());
 
-        player.sendMessage(ChatColor.BLUE + "------------------------------------");
         for (int i = 0; i < popPlayer.size(); i++) {
             playerFor = Bukkit.getPlayer(popPlayer.get(i)).getName();
         }
         for (int i = 0; i < popCount.size(); i++) {
             countFor = popCount.get(i);
         }
+
+        player.sendMessage(ChatColor.BLUE + "------------------------------------");
         player.sendMessage("§61. §e" + playerFor + " §8Count: §7" + countFor);
         player.sendMessage(ChatColor.BLUE + "------------------------------------");
 
