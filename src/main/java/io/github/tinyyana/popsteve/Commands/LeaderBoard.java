@@ -6,7 +6,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,25 +17,24 @@ public class LeaderBoard implements CommandExecutor {
     public LeaderBoard(PluginMain pluginMain) {
     }
 
-    public String playerFor;
-    public Integer countFor;
+    public String playerName;
+    public Integer totalCounts;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player player = (Player) sender;
         List<Integer> popCount = new ArrayList<>(mapManager.totalPopMap.values());
         List<UUID> popPlayer = new ArrayList(mapManager.totalPopMap.keySet());
 
         for (int i = 0; i < popPlayer.size(); i++) {
-            playerFor = Bukkit.getPlayer(popPlayer.get(i)).getName();
+            playerName = Bukkit.getPlayer(popPlayer.get(i)).getName();
         }
         for (int i = 0; i < popCount.size(); i++) {
-            countFor = popCount.get(i);
+            totalCounts = popCount.get(i);
         }
 
-        player.sendMessage(ChatColor.BLUE + "------------------------------------");
-        player.sendMessage("§61. §e" + playerFor + " §8Count: §7" + countFor);
-        player.sendMessage(ChatColor.BLUE + "------------------------------------");
+        sender.sendMessage(ChatColor.BLUE + "------------------------------------");
+        sender.sendMessage("§61. §e" + playerName + " §8Count: §7" + totalCounts);
+        sender.sendMessage(ChatColor.BLUE + "------------------------------------");
 
         return true;
     }
