@@ -17,7 +17,9 @@ import java.util.List;
 public class PopSteveMenu implements CommandExecutor {
     public PopSteveMenu(PluginMain pluginMain) {
     }
+
     Inventory popGui = Bukkit.createInventory(null,27, "§lPop Steve :)");
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
@@ -32,7 +34,6 @@ public class PopSteveMenu implements CommandExecutor {
 
 
     public Inventory getPopGUI(){
-
         for(int i = 0;i<=26;i++){
             if (i == 13){
                 List<String> list = new ArrayList<>();
@@ -42,7 +43,6 @@ public class PopSteveMenu implements CommandExecutor {
             }
             putButton(Material.BLACK_STAINED_GLASS_PANE,"§7§lNO...NOT ME",null,i);
         }
-
         return popGui;
     }
 
@@ -56,6 +56,7 @@ public class PopSteveMenu implements CommandExecutor {
         button.setItemMeta(meta);
         popGui.setItem(index, button);
     }
+
     public List<String> turnColorCode(List<String> list) {
         List<String> lore = new ArrayList<>();
         for (String s : list) {
