@@ -1,10 +1,6 @@
 package io.github.tinyyana.popsteve;
 
-import org.bukkit.Material;
-import org.bukkit.configuration.ConfigurationSection;
-
 import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
 
 public class MapManager {
@@ -31,4 +27,3 @@ public class MapManager {
         return this.totalPopMap.get(uuid);
     }
 }
-
