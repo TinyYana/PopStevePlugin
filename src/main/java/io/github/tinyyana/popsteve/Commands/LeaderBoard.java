@@ -18,6 +18,9 @@ public class LeaderBoard implements CommandExecutor {
     public LeaderBoard(PluginMain pluginMain) {
     }
 
+    public String playerFor;
+    public Integer countFor;
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
@@ -25,81 +28,13 @@ public class LeaderBoard implements CommandExecutor {
         List<UUID> popPlayer = new ArrayList(mapManager.totalPopMap.keySet());
 
         player.sendMessage(ChatColor.BLUE + "------------------------------------");
-        if (popPlayer.size() == 1 || popCount.size() == 1) {
-            player.sendMessage("§61. §e" + Bukkit.getPlayer(popPlayer.get(0)).getName() + " §8Count: §7" + popCount.get(0));
+        for (int i = 0; i < popPlayer.size(); i++) {
+            playerFor = Bukkit.getPlayer(popPlayer.get(i)).getName();
         }
-        if (popPlayer.size() == 2 || popCount.size() == 2) {
-            player.sendMessage("§61. §e" + Bukkit.getPlayer(popPlayer.get(0)).getName() + " §8Count: §7" + popCount.get(0));
-            player.sendMessage("§62. §e" + Bukkit.getPlayer(popPlayer.get(1)).getName() + " §8Count: §7" + popCount.get(1));
+        for (int i = 0; i < popCount.size(); i++) {
+            countFor = popCount.get(i);
         }
-        if (popPlayer.size() == 3 || popCount.size() == 3) {
-            player.sendMessage("§61. §e" + Bukkit.getPlayer(popPlayer.get(0)).getName() + " §8Count: §7" + popCount.get(0));
-            player.sendMessage("§62. §e" + Bukkit.getPlayer(popPlayer.get(1)).getName() + " §8Count: §7" + popCount.get(1));
-            player.sendMessage("§63. §e" + Bukkit.getPlayer(popPlayer.get(2)).getName() + " §8Count: §7" + popCount.get(2));
-        }
-        if (popPlayer.size() == 4 || popCount.size() == 4) {
-            player.sendMessage("§61. §e" + Bukkit.getPlayer(popPlayer.get(0)).getName() + " §8Count: §7" + popCount.get(0));
-            player.sendMessage("§62. §e" + Bukkit.getPlayer(popPlayer.get(1)).getName() + " §8Count: §7" + popCount.get(1));
-            player.sendMessage("§63. §e" + Bukkit.getPlayer(popPlayer.get(2)).getName() + " §8Count: §7" + popCount.get(2));
-            player.sendMessage("§64. §e" + Bukkit.getPlayer(popPlayer.get(3)).getName() + " §8Count: §7" + popCount.get(3));
-        }
-        if (popPlayer.size() == 5 || popCount.size() == 5) {
-            player.sendMessage("§61. §e" + Bukkit.getPlayer(popPlayer.get(0)).getName() + " §8Count: §7" + popCount.get(0));
-            player.sendMessage("§62. §e" + Bukkit.getPlayer(popPlayer.get(1)).getName() + " §8Count: §7" + popCount.get(1));
-            player.sendMessage("§63. §e" + Bukkit.getPlayer(popPlayer.get(2)).getName() + " §8Count: §7" + popCount.get(2));
-            player.sendMessage("§64. §e" + Bukkit.getPlayer(popPlayer.get(3)).getName() + " §8Count: §7" + popCount.get(3));
-            player.sendMessage("§65. §e" + Bukkit.getPlayer(popPlayer.get(4)).getName() + " §8Count: §7" + popCount.get(4));
-        }
-        if (popPlayer.size() == 6 || popCount.size() == 6) {
-            player.sendMessage("§61. §e" + Bukkit.getPlayer(popPlayer.get(0)).getName() + " §8Count: §7" + popCount.get(0));
-            player.sendMessage("§62. §e" + Bukkit.getPlayer(popPlayer.get(1)).getName() + " §8Count: §7" + popCount.get(1));
-            player.sendMessage("§63. §e" + Bukkit.getPlayer(popPlayer.get(2)).getName() + " §8Count: §7" + popCount.get(2));
-            player.sendMessage("§64. §e" + Bukkit.getPlayer(popPlayer.get(3)).getName() + " §8Count: §7" + popCount.get(3));
-            player.sendMessage("§65. §e" + Bukkit.getPlayer(popPlayer.get(4)).getName() + " §8Count: §7" + popCount.get(4));
-            player.sendMessage("§66. §e" + Bukkit.getPlayer(popPlayer.get(5)).getName() + " §8Count: §7" + popCount.get(5));
-        }
-        if (popPlayer.size() == 7 || popCount.size() == 7) {
-            player.sendMessage("§61. §e" + Bukkit.getPlayer(popPlayer.get(0)).getName() + " §8Count: §7" + popCount.get(0));
-            player.sendMessage("§62. §e" + Bukkit.getPlayer(popPlayer.get(1)).getName() + " §8Count: §7" + popCount.get(1));
-            player.sendMessage("§63. §e" + Bukkit.getPlayer(popPlayer.get(2)).getName() + " §8Count: §7" + popCount.get(2));
-            player.sendMessage("§64. §e" + Bukkit.getPlayer(popPlayer.get(3)).getName() + " §8Count: §7" + popCount.get(3));
-            player.sendMessage("§65. §e" + Bukkit.getPlayer(popPlayer.get(4)).getName() + " §8Count: §7" + popCount.get(4));
-            player.sendMessage("§66. §e" + Bukkit.getPlayer(popPlayer.get(5)).getName() + " §8Count: §7" + popCount.get(5));
-            player.sendMessage("§67. §e" + Bukkit.getPlayer(popPlayer.get(6)).getName() + " §8Count: §7" + popCount.get(6));
-        }
-        if (popPlayer.size() == 8 || popCount.size() == 8) {
-            player.sendMessage("§61. §e" + Bukkit.getPlayer(popPlayer.get(0)).getName() + " §8Count: §7" + popCount.get(0));
-            player.sendMessage("§62. §e" + Bukkit.getPlayer(popPlayer.get(1)).getName() + " §8Count: §7" + popCount.get(1));
-            player.sendMessage("§63. §e" + Bukkit.getPlayer(popPlayer.get(2)).getName() + " §8Count: §7" + popCount.get(2));
-            player.sendMessage("§64. §e" + Bukkit.getPlayer(popPlayer.get(3)).getName() + " §8Count: §7" + popCount.get(3));
-            player.sendMessage("§65. §e" + Bukkit.getPlayer(popPlayer.get(4)).getName() + " §8Count: §7" + popCount.get(4));
-            player.sendMessage("§66. §e" + Bukkit.getPlayer(popPlayer.get(5)).getName() + " §8Count: §7" + popCount.get(5));
-            player.sendMessage("§67. §e" + Bukkit.getPlayer(popPlayer.get(6)).getName() + " §8Count: §7" + popCount.get(6));
-            player.sendMessage("§68. §e" + Bukkit.getPlayer(popPlayer.get(7)).getName() + " §8Count: §7" + popCount.get(7));
-        }
-        if (popPlayer.size() == 9 || popCount.size() == 9) {
-            player.sendMessage("§61. §e" + Bukkit.getPlayer(popPlayer.get(0)).getName() + " §8Count: §7" + popCount.get(0));
-            player.sendMessage("§62. §e" + Bukkit.getPlayer(popPlayer.get(1)).getName() + " §8Count: §7" + popCount.get(1));
-            player.sendMessage("§63. §e" + Bukkit.getPlayer(popPlayer.get(2)).getName() + " §8Count: §7" + popCount.get(2));
-            player.sendMessage("§64. §e" + Bukkit.getPlayer(popPlayer.get(3)).getName() + " §8Count: §7" + popCount.get(3));
-            player.sendMessage("§65. §e" + Bukkit.getPlayer(popPlayer.get(4)).getName() + " §8Count: §7" + popCount.get(4));
-            player.sendMessage("§66. §e" + Bukkit.getPlayer(popPlayer.get(5)).getName() + " §8Count: §7" + popCount.get(5));
-            player.sendMessage("§67. §e" + Bukkit.getPlayer(popPlayer.get(6)).getName() + " §8Count: §7" + popCount.get(6));
-            player.sendMessage("§68. §e" + Bukkit.getPlayer(popPlayer.get(7)).getName() + " §8Count: §7" + popCount.get(7));
-            player.sendMessage("§69. §e" + Bukkit.getPlayer(popPlayer.get(8)).getName() + " §8Count: §7" + popCount.get(8));
-        }
-        if (popPlayer.size() == 10 || popCount.size() == 10) {
-            player.sendMessage("§61. §e" + Bukkit.getPlayer(popPlayer.get(0)).getName() + " §8Count: §7" + popCount.get(0));
-            player.sendMessage("§62. §e" + Bukkit.getPlayer(popPlayer.get(1)).getName() + " §8Count: §7" + popCount.get(1));
-            player.sendMessage("§63. §e" + Bukkit.getPlayer(popPlayer.get(2)).getName() + " §8Count: §7" + popCount.get(2));
-            player.sendMessage("§64. §e" + Bukkit.getPlayer(popPlayer.get(3)).getName() + " §8Count: §7" + popCount.get(3));
-            player.sendMessage("§65. §e" + Bukkit.getPlayer(popPlayer.get(4)).getName() + " §8Count: §7" + popCount.get(4));
-            player.sendMessage("§66. §e" + Bukkit.getPlayer(popPlayer.get(5)).getName() + " §8Count: §7" + popCount.get(5));
-            player.sendMessage("§67. §e" + Bukkit.getPlayer(popPlayer.get(6)).getName() + " §8Count: §7" + popCount.get(6));
-            player.sendMessage("§68. §e" + Bukkit.getPlayer(popPlayer.get(7)).getName() + " §8Count: §7" + popCount.get(7));
-            player.sendMessage("§69. §e" + Bukkit.getPlayer(popPlayer.get(8)).getName() + " §8Count: §7" + popCount.get(8));
-            player.sendMessage("§610. §e" + Bukkit.getPlayer(popPlayer.get(9)).getName() + " §8Count: §7" + popCount.get(9));
-        }
+        player.sendMessage("§61. §e" + playerFor + " §8Count: §7" + countFor);
         player.sendMessage(ChatColor.BLUE + "------------------------------------");
 
         return true;
