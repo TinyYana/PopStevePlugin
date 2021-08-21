@@ -1,5 +1,6 @@
 package io.github.tinyyana.popsteve.Commands;
 
+import io.github.tinyyana.popsteve.MapManager;
 import io.github.tinyyana.popsteve.PluginMain;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -15,14 +16,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PopSteveMenu implements CommandExecutor {
+
     public PopSteveMenu(PluginMain pluginMain) {
     }
 
     Inventory popGui = Bukkit.createInventory(null,27, "§lPop Steve :)");
+    MapManager mapManager = new MapManager();
+    public static Player player;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player player = (Player) sender;
+        player = (Player) sender;
 
         if (!(sender instanceof Player)) {
             sender.sendMessage("Only player can execute this command!");
@@ -37,6 +41,7 @@ public class PopSteveMenu implements CommandExecutor {
             if (i == 13){
                 List<String> list = new ArrayList<>();
                 list.add("&eClick to POP STEVE");
+                list.add(mapManager.getPop(player.getUniqueId()).toString());
                 putButton(Material.PLAYER_HEAD,"§6§lPOP STEVE!",list,i);
                 continue;
             }
