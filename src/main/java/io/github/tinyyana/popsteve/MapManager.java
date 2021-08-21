@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class MapManager {
     public int totalPop;
-    HashMap<UUID, Integer> totalPopMap = new HashMap<>();
+    public HashMap<UUID, Integer> totalPopMap = new HashMap<>();
 
     public void setTotalPopMap(UUID popPlayer, Integer totalPop) {
         totalPopMap.put(popPlayer, totalPop);
