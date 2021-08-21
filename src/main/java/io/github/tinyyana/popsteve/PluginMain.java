@@ -42,7 +42,7 @@ public final class PluginMain extends JavaPlugin {
     }
 
     public static PluginMain getPlugin(){
-        return plugin;
+        return PluginMain.plugin;
     }
 
 }
