@@ -22,8 +22,8 @@ public class MapManager {
             totalPopMap.put(UUID.fromString(key), Integer.parseInt(value));
         }
     }
-
     public Integer getPop(UUID uuid) {
         return this.totalPopMap.get(uuid);
     }
+
 }

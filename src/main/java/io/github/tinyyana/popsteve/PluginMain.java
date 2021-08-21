@@ -2,7 +2,7 @@ package io.github.tinyyana.popsteve;
 
 import io.github.tinyyana.popsteve.Commands.LeaderBoard;
 import io.github.tinyyana.popsteve.Commands.PopSteveMenu;
-import io.github.tinyyana.popsteve.Listener.onInventoryClickEvent;
+import io.github.tinyyana.popsteve.Listener.InventoryEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -34,7 +34,7 @@ public final class PluginMain extends JavaPlugin {
     }
 
     public void loadEvents() {
-        pluginManager.registerEvents(new onInventoryClickEvent(), this);
+        pluginManager.registerEvents(new InventoryEvent(), this);
     }
 
     public void onLoad(){
