@@ -1,7 +1,7 @@
 name: PopSteve
 version: ${project.version}
 main: io.github.tinyyana.popsteve.PluginMain
-api-version: 1.13
+api-version: 1.16
 prefix: PopSteve
 authors: [ YanaTW, XiaoDong ]
 description: Pop Steve plugin.
