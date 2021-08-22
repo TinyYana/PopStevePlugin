@@ -26,7 +26,7 @@ public class ConfigLoader {
                 plugin.saveResource(this.fileName + ".yml", false);
             }
             catch (IllegalArgumentException e) {
-                System.out.println("檔案取得失敗:[" + this.fileName + ".yml]");
+                System.out.println("Failed to get the file:[" + this.fileName + ".yml]");
             }
         }
 
@@ -35,7 +35,7 @@ public class ConfigLoader {
         }
         catch (Exception e) {
             e.printStackTrace();
-            System.out.println("檔案加載失敗:[" + this.fileName + ".yml]");
+            System.out.println("Failed to load the file:[" + this.fileName + ".yml]");
         }
     }
 
@@ -44,7 +44,7 @@ public class ConfigLoader {
             this.configuration.save(file);
         }
         catch (Exception e) {
-            System.out.println("檔案儲存失敗:[ " + this.fileName + ".yml]");
+            System.out.println("Failed to save the file:[ " + this.fileName + ".yml]");
             return false;
         }
         return true;

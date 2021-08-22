@@ -27,8 +27,6 @@ public class LeaderBoard implements CommandExecutor {
         sender.sendMessage(ChatColor.GREEN + "Total Pops: " + mapManager.totalPop);
 
         List<Integer> popCount = new ArrayList<>(mapManager.totalPopMap.values());
-
-        sender.sendMessage(ChatColor.BLUE + "--------------§d§lPop Steve--------------");
         int i = 0;
         for (UUID uuid : mapManager.getList()) {
             if(i == 10){

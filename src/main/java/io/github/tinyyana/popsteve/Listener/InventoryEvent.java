@@ -51,8 +51,6 @@ public class InventoryEvent implements Listener {
 
             data.get().set(playerUUID.toString(), pop + 1);
             data.get().set("totalPop", mapManager.totalPop);
-            System.out.println(mapManager.totalPop);
-            System.out.println(mapManager.totalPopMap.get(playerUUID));
             event.getWhoClicked().sendMessage("§7§lPOP IT!!");
         }
     }
