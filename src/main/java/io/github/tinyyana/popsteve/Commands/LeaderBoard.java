@@ -19,9 +19,9 @@ public class LeaderBoard implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        sender.sendMessage(ChatColor.BLUE + "--------------§d§lPop Steve§r§9--------------");
         sender.sendMessage(ChatColor.WHITE + "Top 10 Pop");
         sender.sendMessage(ChatColor.GREEN + "Total Pops: " + mapManager.totalPop);
-        sender.sendMessage(ChatColor.BLUE + "--------------§d§lPop Steve--------------");
         for (UUID uuid : mapManager.getList()) {
             sender.sendMessage("§61. §e" + Bukkit.getPlayer(uuid).getName() + " §8Count: §7" + mapManager.getPop(uuid));
         }

@@ -43,6 +43,7 @@ public class InventoryEvent implements Listener {
                 mapManager.setTotalPopMap(playerUUID, 1);
                 list.add("&eClick to POP STEVE");
                 list.add("&fYour POP: &7" + mapManager.getPop(playerUUID).toString());
+                list.add("&fTotal Pop: " + mapManager.totalPop);
                 event.getInventory().setItem(13, setItem(Material.PLAYER_HEAD, "§6§lPOP STEVE!", list));
                 data.get().set(playerUUID.toString(), 1);
                 data.save();
@@ -54,6 +55,7 @@ public class InventoryEvent implements Listener {
             data.get().set("totalPop", mapManager.totalPop);
             list.add("&eClick to POP STEVE");
             list.add("&fYour POP: &7" + mapManager.getPop(playerUUID).toString());
+            list.add("&fTotal Pop: " + mapManager.totalPop);
             event.getInventory().setItem(13, setItem(Material.PLAYER_HEAD, "§6§lPOP STEVE!", list));
 
             event.getWhoClicked().sendMessage("§7§lPOP IT!!");
@@ -70,6 +72,7 @@ public class InventoryEvent implements Listener {
             mapManager.setTotalPopMap(playerUUID, 0);
             list.add("&eClick to POP STEVE");
             list.add("&fYour POP: &7" + mapManager.getPop(event.getPlayer().getUniqueId()).toString());
+            list.add("&fTotal Pop: " + mapManager.totalPop);
             event.getInventory().setItem(13, setItem(Material.PLAYER_HEAD, "§6§lPOP STEVE!", list));
             data.get().set(playerUUID.toString(), 0);
             data.save();
