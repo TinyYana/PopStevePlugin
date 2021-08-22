@@ -14,7 +14,8 @@ public final class PluginMain extends JavaPlugin {
     public ConfigLoader data;
 
     PluginManager pluginManager = getServer().getPluginManager();
-    MapManager mapManager = new MapManager();
+    public MapManager mapManager;
+
     @Override
     public void onEnable() {
         loadCommands();
@@ -42,6 +43,7 @@ public final class PluginMain extends JavaPlugin {
 
     public void onLoad(){
         plugin = this;
+        mapManager = new MapManager();
     }
 
     public static PluginMain getPlugin(){

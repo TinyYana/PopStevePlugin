@@ -25,13 +25,13 @@ public class PopSteveMenu implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player player = (Player) sender;
-        UUID uuid = player.getUniqueId();
-
         if (!(sender instanceof Player)) {
             sender.sendMessage("Only player can execute this command!");
             return true;
         }
+
+        Player player = (Player) sender;
+        UUID uuid = player.getUniqueId();
         player.openInventory(getPopGUI(uuid));
         return true;
     }
