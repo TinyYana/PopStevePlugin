@@ -15,7 +15,6 @@ public class MapManager {
 
     public void load() {
         ConfigLoader data = PluginMain.getPlugin().data;
-        System.out.println("-------------------");
         for (String key : data.get().getKeys(false)) {
             int value = data.get().getInt(key);
             if (key.equals("totalPop")) {
@@ -24,11 +23,8 @@ public class MapManager {
                 continue;
             }
             UUID uuid = UUID.fromString(key);
-            System.out.println(uuid);
-            System.out.println(value);
             setTotalPopMap(uuid, value);
         }
-        System.out.println("-------------------");
     }
 
     public Integer getPop(UUID uuid) {

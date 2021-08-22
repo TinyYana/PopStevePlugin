@@ -37,7 +37,6 @@ public class InventoryEvent implements Listener {
             List<String> list = new ArrayList<>();
             mapManager.totalPop++;
 
-            System.out.println(mapManager.getPop(playerUUID));
             Integer pop = mapManager.getPop(playerUUID);
 
             if (pop == null) {
@@ -78,6 +77,7 @@ public class InventoryEvent implements Listener {
         }
         list.add("&eClick to POP STEVE");
         list.add("&fYour POP: &7" + mapManager.getPop(event.getPlayer().getUniqueId()).toString());
+        list.add("&fTotal Pop: " + mapManager.totalPop);
         event.getInventory().setItem(13, setItem(Material.PLAYER_HEAD, "§6§lPOP STEVE!", list));
     }
 
