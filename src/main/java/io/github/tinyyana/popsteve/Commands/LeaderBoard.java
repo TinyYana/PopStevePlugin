@@ -18,34 +18,17 @@ public class LeaderBoard implements CommandExecutor {
     public LeaderBoard(PluginMain pluginMain) {
     }
 
-    public String playerName;
-    public Integer totalCounts;
     MapManager mapManager = PluginMain.getPlugin().mapManager;
-
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        List<Integer> popCount = new ArrayList<>(mapManager.totalPopMap.values());
-        List<UUID> popPlayer = new ArrayList<>(mapManager.totalPopMap.keySet());
-
-        for (int i = 0; i < popPlayer.size(); i++) {
-            playerName = Bukkit.getPlayer(popPlayer.get(i)).getName();
-        }
-        for (int i = 0; i < popCount.size(); i++) {
-            totalCounts = popCount.get(i);
-        }
-
-
-
-        sender.sendMessage(ChatColor.BLUE + "------------------------------------");
+        sender.sendMessage(ChatColor.WHITE + "Top 10 Pop");
+        sender.sendMessage(ChatColor.GREEN + "Total Pops: " + mapManager.totalPop);
+        sender.sendMessage(ChatColor.BLUE + "--------------§d§lPop Steve--------------");
         for (UUID uuid : mapManager.getList()) {
             sender.sendMessage("§61. §e" + Bukkit.getPlayer(uuid).getName() + " §8Count: §7" + mapManager.getPop(uuid));
         }
-        sender.sendMessage(ChatColor.BLUE + "------------------------------------");
-
-        popCount.forEach(System.out::println);
-
-
+        sender.sendMessage(ChatColor.BLUE + "-----------------------------------------");
         return true;
     }
 }
