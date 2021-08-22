@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class MapManager {
-    public int totalPop;
+    public int totalPop = 0;
     public HashMap<UUID, Integer> totalPopMap = new HashMap<>();
 
     public void setTotalPopMap(UUID popPlayer, Integer totalPop) {
@@ -19,7 +19,6 @@ public class MapManager {
             int value = data.get().getInt(key);
             if (key.equals("totalPop")) {
                 totalPop = data.get().getInt("totalPop");
-                System.out.println(totalPop);
                 continue;
             }
             UUID uuid = UUID.fromString(key);

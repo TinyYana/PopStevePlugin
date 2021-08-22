@@ -35,29 +35,24 @@ public class InventoryEvent implements Listener {
         if (event.getSlot() == 13) {
             UUID playerUUID = event.getWhoClicked().getUniqueId();
             List<String> list = new ArrayList<>();
-            mapManager.totalPop++;
+
 
             Integer pop = mapManager.getPop(playerUUID);
 
-            if (pop == null) {
-                mapManager.setTotalPopMap(playerUUID, 1);
-                list.add("&eClick to POP STEVE");
-                list.add("&fYour POP: &7" + mapManager.getPop(playerUUID).toString());
-                list.add("&fTotal Pop: " + mapManager.totalPop);
-                event.getInventory().setItem(13, setItem(Material.PLAYER_HEAD, "§6§lPOP STEVE!", list));
-                data.get().set(playerUUID.toString(), 1);
-                data.save();
-                return;
-            }
+            mapManager.totalPop++;
             mapManager.setTotalPopMap(playerUUID, pop + 1);
-            data.get().set(playerUUID.toString(), pop);
 
-            data.get().set("totalPop", mapManager.totalPop);
-            list.add("&eClick to POP STEVE");
+            list.add("&e&lClick to POP STEVE");
+            list.add("&fTotal Pop: &7" + mapManager.totalPop);
             list.add("&fYour POP: &7" + mapManager.getPop(playerUUID).toString());
-            list.add("&fTotal Pop: " + mapManager.totalPop);
+
+
             event.getInventory().setItem(13, setItem(Material.PLAYER_HEAD, "§6§lPOP STEVE!", list));
 
+            data.get().set(playerUUID.toString(), pop + 1);
+            data.get().set("totalPop", mapManager.totalPop);
+            System.out.println(mapManager.totalPop);
+            System.out.println(mapManager.totalPopMap.get(playerUUID));
             event.getWhoClicked().sendMessage("§7§lPOP IT!!");
         }
     }
@@ -70,17 +65,23 @@ public class InventoryEvent implements Listener {
         List<String> list = new ArrayList<>();
         if (mapManager.getPop(playerUUID) == null) {
             mapManager.setTotalPopMap(playerUUID, 0);
-            list.add("&eClick to POP STEVE");
+            list.add("&e&lClick to POP STEVE");
+            list.add("&fTotal Pop: &7" + mapManager.totalPop);
             list.add("&fYour POP: &7" + mapManager.getPop(event.getPlayer().getUniqueId()).toString());
-            list.add("&fTotal Pop: " + mapManager.totalPop);
+
             event.getInventory().setItem(13, setItem(Material.PLAYER_HEAD, "§6§lPOP STEVE!", list));
             data.get().set(playerUUID.toString(), 0);
             data.save();
             return;
         }
-        list.add("&eClick to POP STEVE");
+
+
+
+        list.add("&e&lClick to POP STEVE");
+        list.add("&fTotal Pop: &7" + mapManager.totalPop);
         list.add("&fYour POP: &7" + mapManager.getPop(event.getPlayer().getUniqueId()).toString());
-        list.add("&fTotal Pop: " + mapManager.totalPop);
+
+
         event.getInventory().setItem(13, setItem(Material.PLAYER_HEAD, "§6§lPOP STEVE!", list));
     }
 

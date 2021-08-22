@@ -7,10 +7,11 @@ import io.github.tinyyana.popsteve.Listener.PlayerEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+
 public final class PluginMain extends JavaPlugin {
 
     public static PluginMain plugin;
-    public ConfigLoader config;
     public ConfigLoader data;
 
     PluginManager pluginManager = getServer().getPluginManager();
@@ -19,7 +20,6 @@ public final class PluginMain extends JavaPlugin {
     @Override
     public void onEnable() {
         loadCommands();
-        config = new ConfigLoader("config");
         data = new ConfigLoader("data");
         mapManager.load();
         loadEvents();
@@ -32,8 +32,9 @@ public final class PluginMain extends JavaPlugin {
     }
 
     public void loadCommands() {
-        getCommand("popsteve").setExecutor(new PopSteveMenu(this));
-        getCommand("popleaderboard").setExecutor(new LeaderBoard(this));
+
+        Objects.requireNonNull(getCommand("popsteve")).setExecutor(new PopSteveMenu(this));
+        Objects.requireNonNull(getCommand("popleaderboard")).setExecutor(new LeaderBoard(this));
     }
 
     public void loadEvents() {
