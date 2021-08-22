@@ -32,9 +32,8 @@ public final class PluginMain extends JavaPlugin {
     }
 
     public void loadCommands() {
-
-        Objects.requireNonNull(getCommand("popsteve")).setExecutor(new PopSteveMenu(this));
-        Objects.requireNonNull(getCommand("popleaderboard")).setExecutor(new LeaderBoard(this));
+        getCommand("popsteve").setExecutor(new PopSteveMenu(this));
+        getCommand("popleaderboard").setExecutor(new LeaderBoard(this));
     }
 
     public void loadEvents() {

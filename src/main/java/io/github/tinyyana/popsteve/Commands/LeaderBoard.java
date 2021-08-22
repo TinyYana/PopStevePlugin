@@ -23,22 +23,17 @@ public class LeaderBoard implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         sender.sendMessage(ChatColor.BLUE + "--------------§d§lPop Steve§r§9--------------");
-        sender.sendMessage(ChatColor.GREEN + "前十排行榜");
-        sender.sendMessage(ChatColor.GREEN + "全服推數: " + mapManager.totalPop);
+        sender.sendMessage(ChatColor.GREEN + "Top 10");
+        sender.sendMessage(ChatColor.GREEN + "Server total pops: " + mapManager.totalPop);
 
         int runNumber = Math.min(mapManager.getList().size(), 10);
 
         for (int i = 0; i < runNumber; i++) {
 
-            sender.sendMessage("§6" + (i + 1) + ". §e" + Bukkit.getPlayer(mapManager.getList().get(i)).getName() + " §8推數: §7" + mapManager.getPop(mapManager.getList().get(i)));
+            sender.sendMessage("§6" + (i + 1) + ". §e" + Bukkit.getPlayer(mapManager.getList().get(i)).getName() + " §8Pop Count: §7" + mapManager.getPop(mapManager.getList().get(i)));
         }
 
         sender.sendMessage(ChatColor.BLUE + "-----------------------------------------");
-
-
-
-
-
         return true;
     }
 }
