@@ -26,7 +26,7 @@ public class PopSteveMenu implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Only player can execute this command!");
+            sender.sendMessage("只有玩家能夠執行此指令!");
             return true;
         }
 
@@ -41,7 +41,7 @@ public class PopSteveMenu implements CommandExecutor {
             if (i == 13){
                 continue;
             }
-            putButton(Material.BLACK_STAINED_GLASS_PANE,"§7§lNO...NOT ME",null,i);
+            putButton(Material.BLACK_STAINED_GLASS_PANE,"§7§l不是點我啦...",null,i);
         }
         return popGui;
     }

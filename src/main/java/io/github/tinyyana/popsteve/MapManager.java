@@ -1,9 +1,6 @@
 package io.github.tinyyana.popsteve;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class MapManager {
     public int totalPop = 0;
@@ -35,13 +32,19 @@ public class MapManager {
         Integer[] popCount = this.totalPopMap.values().toArray(new Integer[0]);
 
         //排序
-        for (int one = 0; one < popCount.length; one++) {
+        for (int one = 0; one < popCount.length - 1; one++) {
             for (int two = 1; two < popCount.length; two++) {
-                if (one < two) {
+                if (popCount[two] > popCount[one]) {
                     int num = popCount[one];
                     popCount[one] = popCount[two];
                     popCount[two] = num;
                 }
+            }
+        }
+
+        for (int i = 0; i <= 9; i++) {
+            if (i + 1 == popCount.length) {
+                break;
             }
         }
 

@@ -5,10 +5,12 @@ import io.github.tinyyana.popsteve.ConfigLoader;
 import io.github.tinyyana.popsteve.MapManager;
 import io.github.tinyyana.popsteve.PluginMain;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -31,7 +33,6 @@ public class InventoryEvent implements Listener {
     public void onMainInventoryClick(InventoryClickEvent event) {
         if (!event.getView().getTitle().equals("§lPop Steve :)")) return;
         event.setCancelled(true);
-
         if (event.getSlot() == 13) {
             UUID playerUUID = event.getWhoClicked().getUniqueId();
             List<String> list = new ArrayList<>();
@@ -42,16 +43,15 @@ public class InventoryEvent implements Listener {
             mapManager.totalPop++;
             mapManager.setTotalPopMap(playerUUID, pop + 1);
 
-            list.add("&e&lClick to POP STEVE");
-            list.add("&fTotal Pop: &7" + mapManager.totalPop);
-            list.add("&fYour POP: &7" + mapManager.getPop(playerUUID).toString());
+            list.add("&e&l點我來推 STEVE!");
+            list.add("&f全服推數: &7" + mapManager.totalPop);
 
 
             event.getInventory().setItem(13, setItem(Material.PLAYER_HEAD, "§6§lPOP STEVE!", list));
 
             data.get().set(playerUUID.toString(), pop + 1);
             data.get().set("totalPop", mapManager.totalPop);
-            event.getWhoClicked().sendMessage("§7§lPOP IT!!");
+            event.getWhoClicked().sendMessage("§f你的推數: §7" + mapManager.getPop(playerUUID).toString());
         }
     }
 
@@ -63,9 +63,8 @@ public class InventoryEvent implements Listener {
         List<String> list = new ArrayList<>();
         if (mapManager.getPop(playerUUID) == null) {
             mapManager.setTotalPopMap(playerUUID, 0);
-            list.add("&e&lClick to POP STEVE");
-            list.add("&fTotal Pop: &7" + mapManager.totalPop);
-            list.add("&fYour POP: &7" + mapManager.getPop(event.getPlayer().getUniqueId()).toString());
+            list.add("&e&l點我來推 STEVE!");
+            list.add("&f全服推數: &7" + mapManager.totalPop);
 
             event.getInventory().setItem(13, setItem(Material.PLAYER_HEAD, "§6§lPOP STEVE!", list));
             data.get().set(playerUUID.toString(), 0);
@@ -75,9 +74,8 @@ public class InventoryEvent implements Listener {
 
 
 
-        list.add("&e&lClick to POP STEVE");
-        list.add("&fTotal Pop: &7" + mapManager.totalPop);
-        list.add("&fYour POP: &7" + mapManager.getPop(event.getPlayer().getUniqueId()).toString());
+        list.add("&e&l點我來推 STEVE!");
+        list.add("&f全服推數: &7" + mapManager.totalPop);
 
 
         event.getInventory().setItem(13, setItem(Material.PLAYER_HEAD, "§6§lPOP STEVE!", list));
