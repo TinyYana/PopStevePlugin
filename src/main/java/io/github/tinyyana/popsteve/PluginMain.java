@@ -41,12 +41,12 @@ public final class PluginMain extends JavaPlugin {
         pluginManager.registerEvents(new PlayerEvent(), this);
     }
 
-    public void onLoad(){
+    public void onLoad() {
         plugin = this;
         mapManager = new MapManager();
     }
 
-    public static PluginMain getPlugin(){
+    public static PluginMain getPlugin() {
         return plugin;
     }
 

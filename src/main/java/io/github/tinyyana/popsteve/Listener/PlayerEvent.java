@@ -18,7 +18,7 @@ public class PlayerEvent implements Listener {
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event){
+    public void onPlayerJoin(PlayerJoinEvent event) {
 
     }
 }

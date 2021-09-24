@@ -17,7 +17,7 @@ import java.util.UUID;
 
 public class PopSteveMenu implements CommandExecutor {
 
-    Inventory popGui = Bukkit.createInventory(null,27, "§lPop Steve :)");
+    Inventory popGui = Bukkit.createInventory(null, 27, "§lPop Steve :)");
 
     public PopSteveMenu(PluginMain pluginMain) {
     }
@@ -36,12 +36,12 @@ public class PopSteveMenu implements CommandExecutor {
         return true;
     }
 
-    public Inventory getPopGUI(UUID uuid){
-        for(int i = 0;i<=26;i++){
-            if (i == 13){
+    public Inventory getPopGUI(UUID uuid) {
+        for (int i = 0; i <= 26; i++) {
+            if (i == 13) {
                 continue;
             }
-            putButton(Material.BLACK_STAINED_GLASS_PANE,"§7§lNOT ME...",null,i);
+            putButton(Material.BLACK_STAINED_GLASS_PANE, "§7§lNOT ME...", null, i);
         }
         return popGui;
     }

@@ -12,45 +12,42 @@ public class ConfigLoader {
     private final String fileName;
     private final PluginMain plugin = PluginMain.getPlugin();
 
-    public ConfigLoader (String fileName) {
+    public ConfigLoader(String fileName) {
         this.fileName = fileName;
         this.load();
     }
 
-    public void load () {
+    public void load() {
         this.file = new File(plugin.getDataFolder().getPath(), File.separator + this.fileName + ".yml");
         this.configuration = new YamlConfiguration();
 
-        if (! file.exists()) {
+        if (!file.exists()) {
             try {
                 plugin.saveResource(this.fileName + ".yml", false);
-            }
-            catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println("Failed to get the file:[" + this.fileName + ".yml]");
             }
         }
 
         try {
             this.configuration = YamlConfiguration.loadConfiguration(this.file);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to load the file:[" + this.fileName + ".yml]");
         }
     }
 
-    public boolean save () {
+    public boolean save() {
         try {
             this.configuration.save(file);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Failed to save the file:[ " + this.fileName + ".yml]");
             return false;
         }
         return true;
     }
 
-    public FileConfiguration get () {
+    public FileConfiguration get() {
         return this.configuration;
     }
 }
